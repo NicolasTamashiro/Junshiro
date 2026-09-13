@@ -1,0 +1,32 @@
+# Dart / Flutter
+**/.dart_tool/
+**/.packages
+**/.pub-cache/
+**/build/
+**/coverage/
+**/android/local.properties
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Editor / sistema
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Configuração local e credenciais
+.env
+.env.*
+!.env.example
+.gh/
+.codex/auth.json
+**/key.properties
+**/*.jks
+**/*.keystore
+
+# Automação e planejamento locais; não fazem parte da entrega acadêmica.
+.agents/
+.specify/
+specs/
+AGENTS.md
