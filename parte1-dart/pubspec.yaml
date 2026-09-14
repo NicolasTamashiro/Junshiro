@@ -1,10 +1,6 @@
-name: gameshelf_dart
-description: Relatorio em Dart puro do projeto academico GameShelf.
+name: junshiro_dart
+description: Relatorio em Dart puro do projeto academico Junshiro.
 publish_to: none
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
-
-dev_dependencies:
-  lints: ^5.0.0
-  test: ^1.25.0

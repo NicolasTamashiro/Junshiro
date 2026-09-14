@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'screens/home_page.dart';
 
 void main() {
-  runApp(const GameShelfApp());
+  runApp(const JunshiroApp());
 }
 
-class GameShelfApp extends StatelessWidget {
-  const GameShelfApp({super.key});
+class JunshiroApp extends StatelessWidget {
+  const JunshiroApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'GameShelf',
+      title: 'Junshiro',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

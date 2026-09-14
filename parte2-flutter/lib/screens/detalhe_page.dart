@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../models/jogo.dart';
 import '../models/jogo_digital.dart';
-import '../utils/formatadores.dart';
 
 class DetalhePage extends StatelessWidget {
   final Jogo jogo;
@@ -11,47 +10,25 @@ class DetalhePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final jogoDigital = jogo is JogoDigital ? jogo as JogoDigital : null;
+    final digital = jogo is JogoDigital ? jogo as JogoDigital : null;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Detalhes do jogo')),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              jogo.titulo,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              formatarReais(jogo.precoPago),
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 24),
-            _LinhaDetalhe(
-              rotulo: 'Ano de lançamento',
-              valor: '${jogo.anoLancamento}',
-            ),
-            _LinhaDetalhe(
-              rotulo: 'Data de aquisição',
-              valor: formatarData(jogo.dataAquisicao),
-            ),
-            if (jogoDigital != null) ...[
-              _LinhaDetalhe(
-                rotulo: 'Loja digital',
-                valor: jogoDigital.lojaDigital,
-              ),
-              _LinhaDetalhe(
-                rotulo: 'Tamanho',
-                valor:
-                    '${jogoDigital.tamanhoGB.toStringAsFixed(1).replaceAll('.', ',')} GB',
-              ),
+            Text(jogo.titulo, style: Theme.of(context).textTheme.headlineMedium),
+            Text('Preço: ${formatarReais(jogo.precoPago)}'),
+            const SizedBox(height: 20),
+            Text('Ano: ${jogo.anoLancamento}'),
+            Text('Aquisição: ${formatarData(jogo.dataAquisicao)}'),
+            if (digital != null) ...[
+              Text('Loja: ${digital.lojaDigital}'),
+              Text('Tamanho: ${digital.tamanhoGB} GB'),
             ],
-            const SizedBox(height: 16),
-            Text('Descrição', style: Theme.of(context).textTheme.titleMedium),
-            const SizedBox(height: 6),
+            const SizedBox(height: 20),
             Text(jogo.descricao()),
           ],
         ),
@@ -60,23 +37,8 @@ class DetalhePage extends StatelessWidget {
   }
 }
 
-class _LinhaDetalhe extends StatelessWidget {
-  final String rotulo;
-  final String valor;
+String formatarReais(double valor) =>
+    'R\$ ${valor.toStringAsFixed(2).replaceAll('.', ',')}';
 
-  const _LinhaDetalhe({required this.rotulo, required this.valor});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(rotulo, style: Theme.of(context).textTheme.labelLarge),
-          Text(valor),
-        ],
-      ),
-    );
-  }
-}
+String formatarData(DateTime data) =>
+    '${data.day.toString().padLeft(2, '0')}/${data.month.toString().padLeft(2, '0')}/${data.year}';

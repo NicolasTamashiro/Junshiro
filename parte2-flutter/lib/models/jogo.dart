@@ -9,9 +9,9 @@ class Jogo {
     required int anoLancamento,
     double precoPago = 0,
     required this.dataAquisicao,
-  }) : titulo = _validarTitulo(titulo),
-       anoLancamento = _validarAno(anoLancamento),
-       precoPago = _validarPreco(precoPago);
+  })  : titulo = _validarTitulo(titulo),
+        anoLancamento = _validarAno(anoLancamento),
+        precoPago = _validarPreco(precoPago);
 
   String descricao() {
     return 'Jogo: $titulo | Ano: $anoLancamento | Preço pago: R\$ '

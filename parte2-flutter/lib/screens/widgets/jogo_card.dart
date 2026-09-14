@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../models/jogo.dart';
-import '../../utils/formatadores.dart';
 
 class JogoCard extends StatelessWidget {
   final Jogo jogo;
-  final VoidCallback? aoTocar;
+  final VoidCallback aoTocar;
 
-  const JogoCard({super.key, required this.jogo, this.aoTocar});
+  const JogoCard({super.key, required this.jogo, required this.aoTocar});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +46,7 @@ class JogoCard extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               formatarReais(jogo.precoPago),
-              style: const TextStyle(
-                color: Color(0xFFD2C1FF),
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -58,3 +54,6 @@ class JogoCard extends StatelessWidget {
     );
   }
 }
+
+String formatarReais(double valor) =>
+    'R\$ ${valor.toStringAsFixed(2).replaceAll('.', ',')}';

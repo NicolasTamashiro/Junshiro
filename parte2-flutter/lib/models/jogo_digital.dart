@@ -11,8 +11,8 @@ class JogoDigital extends Jogo {
     required super.dataAquisicao,
     required String lojaDigital,
     required double tamanhoGB,
-  }) : lojaDigital = _validarLoja(lojaDigital),
-       tamanhoGB = _validarTamanho(tamanhoGB);
+  })  : lojaDigital = _validarLoja(lojaDigital),
+        tamanhoGB = _validarTamanho(tamanhoGB);
 
   @override
   String descricao() {

@@ -5,8 +5,8 @@ class ColecaoJogos {
   final List<Jogo> _jogos;
 
   ColecaoJogos({required String nome, Iterable<Jogo> jogos = const []})
-    : nome = _validarNome(nome),
-      _jogos = List<Jogo>.from(jogos);
+      : nome = _validarNome(nome),
+        _jogos = List<Jogo>.from(jogos);
 
   List<Jogo> get jogos => List<Jogo>.unmodifiable(_jogos);
 
