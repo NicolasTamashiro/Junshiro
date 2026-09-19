@@ -25,7 +25,7 @@ Thumbs.db
 **/*.jks
 **/*.keystore
 
-# Automação e planejamento locais; não fazem parte da entrega acadêmica.
+# Planejamento locais; não fazem parte da entrega acadêmica.
 .agents/
 .specify/
 specs/
